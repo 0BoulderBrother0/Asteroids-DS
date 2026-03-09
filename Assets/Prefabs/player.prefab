@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   thrust: 15
   rotationSpeed: 300
-  maxSpeed: 10
+  maxSpeed: 15
   missile: {fileID: 7062956483004529042, guid: 4de8035a35b38dc90b59944aec7c0d51, type: 3}
   shotStrength: 40
   missileLifeTime: 2

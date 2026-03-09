@@ -11,13 +11,15 @@ public class MeteorScript : MonoBehaviour
     public float startVelocity = 2;
     public float splitSpeed = 2;
     Vector3 missileVelocity;
+    Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         transform.localScale = new Vector3(scale, scale);
         HP = scale;
-        GetComponent<Rigidbody2D>().linearVelocity += Random.insideUnitCircle * startVelocity;
+        rb = GetComponent<Rigidbody2D>();
+        rb.linearVelocity += Random.insideUnitCircle * startVelocity;
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class MeteorScript : MonoBehaviour
                     MeteorScript newMS = newMeteor.GetComponent<MeteorScript>();
                     newMS.scale = scale - 1;
 
-                    newMRB.linearVelocity += new Vector2(missileVelocity.x * meteorVelocityDecline, missileVelocity.y * meteorVelocityDecline) + new Vector2(GetComponent<Rigidbody2D>().linearVelocityX, GetComponent<Rigidbody2D>().linearVelocityY);
+                    newMRB.linearVelocity += new Vector2(missileVelocity.x * meteorVelocityDecline, missileVelocity.y * meteorVelocityDecline) + new Vector2(rb.linearVelocityX, rb.linearVelocityY);
                     
                     if (i == 0)
                     {
