@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5567390659898544807}
   - component: {fileID: 5997990109282704435}
   - component: {fileID: 1282590857479361698}
+  - component: {fileID: -6715695239471752355}
   m_Layer: 6
   m_Name: meteor
   m_TagString: Meteor
@@ -171,5 +172,18 @@ MonoBehaviour:
   HP: 2
   scale: 3
   meteorVelocityDecline: 0.05
-  startVelocity: 1
+  startVelocity: 2
   splitSpeed: 2
+--- !u!114 &-6715695239471752355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142010743569488960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e64bfc16e319d24986547e1fc8aa4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CyclicScreenScript
+  safeBuffer: 0.1

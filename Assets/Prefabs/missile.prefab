@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 516356115489768504}
   - component: {fileID: 4067875557406434963}
   - component: {fileID: -8541540776967302815}
+  - component: {fileID: -7596923312941430994}
   m_Layer: 0
   m_Name: missile
   m_TagString: Missile
@@ -165,3 +166,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.38, y: 0.8}
   m_EdgeRadius: 0
+--- !u!114 &-7596923312941430994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062956483004529042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e64bfc16e319d24986547e1fc8aa4b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CyclicScreenScript
+  safeBuffer: 0.1
