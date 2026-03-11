@@ -1,4 +1,4 @@
-using Unity.Mathematics;
+// using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.SceneManagement;
@@ -17,12 +17,16 @@ public class PlayerScript : MonoBehaviour
     public GameObject missile;
     public float shotStrength = 20;
     public float missileLifeTime = 3;
+    public AudioClip[] missileSounds;
+
+    AudioSource audioSource;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -47,6 +51,7 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
+            audioSource.PlayOneShot(missileSounds[Random.Range(0, missileSounds.Length)]);
             GameObject newMissile = Instantiate(missile, transform.position + -transform.up * 3, Quaternion.identity);
             Rigidbody2D mrb = newMissile.GetComponent<Rigidbody2D>();
             mrb.rotation = rb.rotation + 180;

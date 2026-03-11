@@ -10,8 +10,14 @@ public class MeteorScript : MonoBehaviour
     public float meteorVelocityDecline = 0.1f;
     public float startVelocity = 2;
     public float splitSpeed = 2;
+    public AudioClip hitSound;
+    public AudioClip destroySound;
+
+
+
     Vector3 missileVelocity;
     Rigidbody2D rb;
+    AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +26,7 @@ public class MeteorScript : MonoBehaviour
         HP = scale;
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity += Random.insideUnitCircle * startVelocity;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -58,6 +65,14 @@ public class MeteorScript : MonoBehaviour
         {
             missileVelocity = collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity;
             HP--;
+            if (HP > 0)
+            {
+                audioSource.PlayOneShot(hitSound);
+            }
+            else
+            {
+                audioSource.PlayOneShot(destroySound);
+            }
             Destroy(collision.gameObject);
         }
     }
