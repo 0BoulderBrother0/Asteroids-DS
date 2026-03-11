@@ -11,11 +11,13 @@ public class PlayerScript : MonoBehaviour
     public float thrust = 2;
     public float rotationSpeed = 50;
     public float maxSpeed = 15;
+    public float recoil = 0.001f;
 
     [Header("Missile")]
     public GameObject missile;
     public float shotStrength = 20;
     public float missileLifeTime = 3;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +39,7 @@ public class PlayerScript : MonoBehaviour
 
         // rb.linearVelocity = Quaternion.Euler(0, 0, rb.rotation) * Vector2.down * rb.linearVelocity.magnitude;
 
+        //Kontrollerar max hastighet
         if (rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
@@ -49,6 +52,8 @@ public class PlayerScript : MonoBehaviour
             mrb.rotation = rb.rotation + 180;
             mrb.AddRelativeForceY(shotStrength, ForceMode2D.Impulse);
             Destroy(newMissile, missileLifeTime);
+
+            rb.AddRelativeForceY(shotStrength * recoil, ForceMode2D.Impulse);
         }
     }
 

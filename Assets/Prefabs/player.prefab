@@ -230,6 +230,7 @@ MonoBehaviour:
   missile: {fileID: 7062956483004529042, guid: 4de8035a35b38dc90b59944aec7c0d51, type: 3}
   shotStrength: 40
   missileLifeTime: 2
+  recoil: 0.001
 --- !u!114 &-7800312557593374705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,3 +243,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e64bfc16e319d24986547e1fc8aa4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  safeBuffer: 0.1
