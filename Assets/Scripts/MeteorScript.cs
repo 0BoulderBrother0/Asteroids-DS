@@ -1,4 +1,5 @@
 // using Unity.Mathematics;
+// using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,11 +14,16 @@ public class MeteorScript : MonoBehaviour
     public AudioClip hitSound;
     public AudioClip destroySound;
 
+    public GameObject explosion;
+
 
 
     Vector3 missileVelocity;
     Rigidbody2D rb;
     AudioSource audioSource;
+    SpriteRenderer sr;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +33,8 @@ public class MeteorScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.linearVelocity += Random.insideUnitCircle * startVelocity;
         audioSource = GetComponent<AudioSource>();
+        sr = GetComponent<SpriteRenderer>();
+        sr.sortingOrder = (Mathf.RoundToInt(1 / scale) * 1000) + Random.Range(-10, 10);
     }
 
     // Update is called once per frame
@@ -36,6 +44,9 @@ public class MeteorScript : MonoBehaviour
         {
             if (scale >= 1.5f)
             {
+                GameObject newExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
+                newExplosion.GetComponent<TraumaInducer>().MaximumStress = scale * 0.15f;
+            
                 for (int i = 0; i < 2; i++)
                 {
                     GameObject newMeteor = Instantiate(gameObject, transform.position, Quaternion.identity);
@@ -54,7 +65,9 @@ public class MeteorScript : MonoBehaviour
                         newMRB.linearVelocity += new Vector2(missileVelocity.y, -missileVelocity.x).normalized * splitSpeed;
                     }
                 }
+                Destroy(newExplosion, 2);
             }
+
             Destroy(gameObject);
         }
     }
@@ -69,10 +82,10 @@ public class MeteorScript : MonoBehaviour
             {
                 audioSource.PlayOneShot(hitSound);
             }
-            else
+            /*else
             {
                 audioSource.PlayOneShot(destroySound);
-            }
+            }*/
             Destroy(collision.gameObject);
         }
     }

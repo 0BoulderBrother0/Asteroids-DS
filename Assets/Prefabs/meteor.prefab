@@ -81,8 +81,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -91368179
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 3043398855692803865, guid: 63332a88d6ae3e66799e36378508d1a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -177,6 +177,7 @@ MonoBehaviour:
   splitSpeed: 2
   hitSound: {fileID: 8300000, guid: 32e3075ad58931daf95ec06655e98267, type: 3}
   destroySound: {fileID: 8300000, guid: 0234ed52b0a966f43b749c10367f5daa, type: 3}
+  explosion: {fileID: 7167090321523106565, guid: 9edacc35f76d56222b7af5f25776b9ca, type: 3}
 --- !u!114 &-6715695239471752355
 MonoBehaviour:
   m_ObjectHideFlags: 0
