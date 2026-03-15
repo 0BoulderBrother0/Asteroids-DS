@@ -235,7 +235,6 @@ MonoBehaviour:
   missileSounds:
   - {fileID: 8300000, guid: 67c34d1698933d377a28bbf7b2030dae, type: 3}
   - {fileID: 8300000, guid: 89a0b99df199697c79e28652942c72ac, type: 3}
-  thrusterSound: {fileID: 8300000, guid: 4cb1c2bc2d2d49b22bc210558740cf1d, type: 3}
 --- !u!114 &-7800312557593374705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e64bfc16e319d24986547e1fc8aa4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  safeBuffer: 0.1
+  safeBuffer: 0.01
 --- !u!82 &-8126733955487724497
 AudioSource:
   m_ObjectHideFlags: 0
@@ -262,7 +261,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 57fac0428cbd231deb9ea778390df38d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

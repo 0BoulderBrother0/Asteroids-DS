@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   timeBetweenChecks: 3
-  minMeteors: 3
+  minMeteors: 5
   meteor: {fileID: 4142010743569488960, guid: d894432877dc291d8ae29dbb87145a25, type: 3}

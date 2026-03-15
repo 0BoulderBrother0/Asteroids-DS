@@ -5,7 +5,7 @@ public class CyclicScreenScript : MonoBehaviour
 
     Camera cam;
     SpriteRenderer sr;
-    public float safeBuffer = 0.1f;
+    public float safeBuffer = 0.01f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

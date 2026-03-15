@@ -178,4 +178,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e64bfc16e319d24986547e1fc8aa4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CyclicScreenScript
-  safeBuffer: 0.1
+  safeBuffer: 0.01

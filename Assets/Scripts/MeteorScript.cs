@@ -12,8 +12,6 @@ public class MeteorScript : MonoBehaviour
     public float startVelocity = 2;
     public float splitSpeed = 2;
     public AudioClip hitSound;
-    public AudioClip destroySound;
-
     public GameObject explosion;
 
 
@@ -78,14 +76,7 @@ public class MeteorScript : MonoBehaviour
         {
             missileVelocity = collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity;
             HP--;
-            if (HP > 0)
-            {
-                audioSource.PlayOneShot(hitSound);
-            }
-            /*else
-            {
-                audioSource.PlayOneShot(destroySound);
-            }*/
+            audioSource.PlayOneShot(hitSound);
             Destroy(collision.gameObject);
         }
     }
