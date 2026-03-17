@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
     public float maxSpeed = 15;
     public float recoil = 0.001f;
 
+    ParticleSystem ps;
+
     [Header("Missile")]
     public GameObject missile;
     public float shotStrength = 20;
@@ -20,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     public AudioClip[] missileSounds;
 
     AudioSource audioSource;
+
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,6 +30,7 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        ps = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -34,6 +38,18 @@ public class PlayerScript : MonoBehaviour
     {
         float xAxis = Input.GetAxisRaw("Horizontal");
         float yAxis = Input.GetAxisRaw("Vertical");
+
+        if (yAxis != 0)
+        {
+            if (ps.isStopped)
+            {
+                ps.Play();
+            }
+        }
+        else
+        {
+            ps.Stop();
+        }
 
         rb.AddRelativeForceY(-yAxis * thrust);
 

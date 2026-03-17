@@ -173,7 +173,7 @@ MonoBehaviour:
   HP: 2
   scale: 3
   meteorVelocityDecline: 0.05
-  startVelocity: 0
+  startVelocity: 5
   splitSpeed: 2
   hitSound: {fileID: 8300000, guid: 32e3075ad58931daf95ec06655e98267, type: 3}
   explosion: {fileID: 7167090321523106565, guid: 9edacc35f76d56222b7af5f25776b9ca, type: 3}

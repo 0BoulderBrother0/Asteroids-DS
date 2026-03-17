@@ -7,11 +7,28 @@ public class CyclicScreenScript : MonoBehaviour
     SpriteRenderer sr;
     public float safeBuffer = 0.01f;
 
+    float cameraRight;
+    float cameraLeft;
+    float cameraTop;
+    float cameraBottom;
+
+    float objectHeight;
+    float objectWidth;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cam = Camera.main;
         sr = GetComponent<SpriteRenderer>();
+
+        cameraTop = cam.transform.position.y + cam.orthographicSize;
+        cameraBottom = cam.transform.position.y - cam.orthographicSize;
+        float cameraWidth = cam.orthographicSize * cam.aspect;
+        cameraRight = cam.transform.position.x + cameraWidth;
+        cameraLeft = cam.transform.position.x - cameraWidth;
+
+        objectHeight = sr.bounds.extents.y;
+        objectWidth = sr.bounds.extents.x;
     }
 
     // Update is called once per frame
@@ -19,12 +36,6 @@ public class CyclicScreenScript : MonoBehaviour
     {
 
         Vector3 objectPos = transform.position;
-
-        float cameraTop = cam.transform.position.y + cam.orthographicSize;
-        float cameraBottom = cam.transform.position.y - cam.orthographicSize;
-
-        float objectHeight = sr.bounds.extents.y;
-        float objectWidth = sr.bounds.extents.x;
 
 
         if (objectPos.y > cameraTop + objectHeight + safeBuffer)
@@ -38,9 +49,6 @@ public class CyclicScreenScript : MonoBehaviour
         }
 
 
-        float cameraWidth = cam.orthographicSize * cam.aspect;
-        float cameraRight = cam.transform.position.x + cameraWidth;
-        float cameraLeft = cam.transform.position.x - cameraWidth;
 
         if (objectPos.x > cameraRight + objectWidth + safeBuffer)
         {
