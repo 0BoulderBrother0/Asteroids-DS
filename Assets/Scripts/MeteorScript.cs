@@ -1,5 +1,6 @@
 // using Unity.Mathematics;
 // using Unity.Mathematics;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,6 +21,7 @@ public class MeteorScript : MonoBehaviour
     Rigidbody2D rb;
     AudioSource audioSource;
     SpriteRenderer sr;
+    PointsTextScript pts;
 
 
 
@@ -33,6 +35,8 @@ public class MeteorScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
         sr.sortingOrder = (Mathf.RoundToInt(1 / scale) * 1000) + Random.Range(-10, 10);
+
+        pts = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<PointsTextScript>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class MeteorScript : MonoBehaviour
     {
         if (HP <= 0)
         {
+            pts.UpdateMeteorScore();
             if (scale >= 1.5f)
             {
                 GameObject newExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
@@ -77,7 +82,7 @@ public class MeteorScript : MonoBehaviour
             missileVelocity = collision.gameObject.GetComponent<Rigidbody2D>().linearVelocity;
             HP--;
             audioSource.PlayOneShot(hitSound);
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); 
         }
     }
 }
