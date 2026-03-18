@@ -65,7 +65,7 @@ public class PlayerScript : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             audioSource.PlayOneShot(missileSounds[Random.Range(0, missileSounds.Length)]);
             GameObject newMissile = Instantiate(missile, transform.position + -transform.up * 3, Quaternion.identity);

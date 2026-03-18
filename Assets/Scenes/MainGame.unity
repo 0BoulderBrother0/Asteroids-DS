@@ -364,6 +364,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 315826699791041521, guid: 8058e9704f5e5176f9e9bf36956bf080, type: 3}
+      propertyPath: ljud1
+      value: 
+      objectReference: {fileID: 8300000, guid: 18cd84e54d4d36c168b838e7667517f0, type: 3}
+    - target: {fileID: 315826699791041521, guid: 8058e9704f5e5176f9e9bf36956bf080, type: 3}
+      propertyPath: ljud2
+      value: 
+      objectReference: {fileID: 8300000, guid: c98676d38c896f145a2affc39a9b597e, type: 3}
     - target: {fileID: 1835842478361932202, guid: 8058e9704f5e5176f9e9bf36956bf080, type: 3}
       propertyPath: m_Name
       value: MusicManager
