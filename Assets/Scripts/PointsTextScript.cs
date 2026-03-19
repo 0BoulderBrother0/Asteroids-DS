@@ -5,7 +5,7 @@ public class PointsTextScript : MonoBehaviour
 {
 
 
-    int score;
+    public int score;
 
     TextMeshProUGUI textMeshPro;
 
