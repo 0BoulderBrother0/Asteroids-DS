@@ -7,7 +7,8 @@ public class MusicManagerScript : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip ljud1;
     public AudioClip ljud2;
-    public bool isSong1Playing = true;
+    bool isSong2Playing = false;
+    PointsTextScript pts;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,27 +23,21 @@ public class MusicManagerScript : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        isSong2Playing = false;
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = ljud1;
         audioSource.Play();
+        pts = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<PointsTextScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (pts.score >= 50 && isSong2Playing == false)
         {
-            if (isSong1Playing)
-            {
-                audioSource.clip = ljud1;
-            }
-            else
-            {
-                audioSource.clip = ljud2;
-            }
-
+            audioSource.clip = ljud2;
+            isSong2Playing = true;
             audioSource.Play();
-            isSong1Playing = !isSong1Playing;
         }
     }
 }
