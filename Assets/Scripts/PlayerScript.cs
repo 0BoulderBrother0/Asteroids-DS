@@ -1,6 +1,8 @@
 // using Unity.Mathematics;
+//using System.Numerics;
+// using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Rendering.RenderGraphModule;
+// using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
@@ -65,13 +67,13 @@ public class PlayerScript : MonoBehaviour
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.X))
         {
             audioSource.PlayOneShot(missileSounds[Random.Range(0, missileSounds.Length)]);
-            GameObject newMissile = Instantiate(missile, transform.position + -transform.up * 3, Quaternion.identity);
-            Rigidbody2D mrb = newMissile.GetComponent<Rigidbody2D>();
-            mrb.rotation = rb.rotation + 180;
-            mrb.AddRelativeForceY(shotStrength, ForceMode2D.Impulse);
+            GameObject newMissile = Instantiate(missile, transform.position + -transform.up * 3, Quaternion.Euler(0, 0, rb.rotation + 180));
+            // Rigidbody2D mrb = newMissile.GetComponent<Rigidbody2D>();
+            // mrb.rotation = rb.rotation + 180;
+            newMissile.GetComponent<Rigidbody2D>().AddRelativeForceY(shotStrength, ForceMode2D.Impulse);
             Destroy(newMissile, missileLifeTime);
 
             rb.AddRelativeForceY(shotStrength * recoil, ForceMode2D.Impulse);
@@ -81,5 +83,10 @@ public class PlayerScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         SceneManager.LoadScene("MainGame");
+        if (PointsTextScript.instance.isPlayingSong2)
+        {
+            MusicManagerScript.instance.audioSource.clip = MusicManagerScript.instance.firstSong;
+            MusicManagerScript.instance.audioSource.Play();
+        }
     }
 }

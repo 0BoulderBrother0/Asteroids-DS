@@ -170,7 +170,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Points:
 
-    1234567
+    0
 
 '
   m_isRightToLeft: 0
@@ -256,3 +256,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb64859445e6de7478d8d38770606e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  score: 0

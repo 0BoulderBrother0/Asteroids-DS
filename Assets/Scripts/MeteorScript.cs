@@ -34,7 +34,7 @@ public class MeteorScript : MonoBehaviour
         rb.linearVelocity += Random.insideUnitCircle * startVelocity;
         audioSource = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
-        sr.sortingOrder = (Mathf.RoundToInt(1 / scale) * 1000) + Random.Range(-10, 10);
+        sr.sortingOrder = Mathf.RoundToInt(-scale * 100) + Random.Range(-24, 24);
 
         pts = GameObject.FindGameObjectWithTag("Canvas").GetComponentInChildren<PointsTextScript>();
     }

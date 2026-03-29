@@ -142,3 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb350757ae01738cd9a10f39f23acd98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  audioSource: {fileID: 0}
+  firstSong: {fileID: 8300000, guid: 18cd84e54d4d36c168b838e7667517f0, type: 3}
+  secondSong: {fileID: 8300000, guid: c98676d38c896f145a2affc39a9b597e, type: 3}
